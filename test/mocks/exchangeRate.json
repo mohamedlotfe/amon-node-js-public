@@ -1,0 +1,20 @@
+[
+  {
+    "model": "ExchangeRate",
+    "data": {
+      "id": "baa53743-f4dc-4247-b13a-af0c7ce74081",
+      "crypto_currency": "BTC",
+      "created_at": "2023-03-21 06:35:10.346812+00",
+      "rates": { "EUR": 1940.98, "GBP": 1652.82, "USD": 2294.45 }
+    }
+  },
+  {
+    "model": "ExchangeRate",
+    "data": {
+      "id": "baa53743-f4dc-4247-b13a-af0c7ce74082",
+      "crypto_currency": "ETH",
+      "created_at": "2023-03-21 06:35:10.346812+00",
+      "rates": { "EUR": 1940.98, "GBP": 1652.82, "USD": 2294.45 }
+    }
+  }
+]
