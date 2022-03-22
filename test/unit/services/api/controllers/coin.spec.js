@@ -31,4 +31,20 @@ describe('Controller: Coin', () => {
       expect(CoinController.getCoinByCode(coinCode)).to.be.rejectedWith(Error, 'unknown_coin_code');
     });
   });
+
+  describe('createCoin', () => {
+    it('should put the coin with unique code', async () => {
+      const obj = { name: 'Bitcoin', code: 'BTC' };
+      const coin = await CoinController.createCoin(obj);
+
+      expect(coin.code).to.eq(obj.code);
+    });
+
+    it('should update the Coin not create a new one', async () => {
+      const obj = { name: 'Bitcoinzz', code: 'BTC' };
+      const coin = await CoinController.createCoin(obj);
+
+      expect(coin.name).to.eq(obj.name);
+    });
+  });
 });

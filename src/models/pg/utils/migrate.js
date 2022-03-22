@@ -140,6 +140,7 @@ async function commander() {
   if (process.argv.length < 2) {
     throw new Error('need params');
   }
+  console.log(process.argv)
   const cmd = process.argv[2].trim();
   let executedCmd;
 

@@ -41,7 +41,19 @@ describe('Model:coin', () => {
       code: 'AMN',
     });
 
-    const filterCoin = coin.filterKeys();
+    const filterCoin = coin.filterKeys({ price: 4324 });
     expect(Object.keys(filterCoin).length).to.eq(3);
+  });
+
+  it('Should Put Coin', async () => {
+    const obj = { name: 'Amon', code: 'AMN' };
+    const coin = await Models.Coin.upsert(obj);
+
+    expect(coin.name).to.eq(obj.name);
+    expect(coin.code).to.eq(obj.code);
+    await Models.Coin.upsert(obj);
+
+    const AmnCoins = await Models.Coin.findAll({ where: { code: 'AMN' } })
+    expect(Object.keys(AmnCoins).length).to.eq(1);
   });
 });

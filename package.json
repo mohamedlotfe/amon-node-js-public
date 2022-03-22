@@ -103,6 +103,7 @@
     "ws": "^8.2.3"
   },
   "devDependencies": {
+    "coingecko-api": "^1.0.10",
     "sequelize-cli": "^6.3.0"
   }
 }
