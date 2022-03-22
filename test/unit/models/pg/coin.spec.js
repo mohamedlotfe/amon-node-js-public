@@ -53,7 +53,7 @@ describe('Model:coin', () => {
     expect(coin.code).to.eq(obj.code);
     await Models.Coin.upsert(obj);
 
-    const AmnCoins = await Models.Coin.findAll({ where: { code: 'AMN' } })
+    const AmnCoins = await Models.Coin.findAll({ where: { code: 'AMN' } });
     expect(Object.keys(AmnCoins).length).to.eq(1);
   });
 });

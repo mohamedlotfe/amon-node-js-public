@@ -1,1 +1,1 @@
-module.exports = ['USD', 'GBP', 'EUR']
+module.exports = ['USD', 'GBP', 'EUR'];

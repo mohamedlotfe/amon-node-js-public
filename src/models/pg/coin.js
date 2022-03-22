@@ -26,7 +26,7 @@ module.exports = function (sequelize, DataTypes) {
   );
 
   Coin.prototype.filterKeys = function (obj = {}) {
-    const target = Object.assign(this.toObject(), obj)
+    const target = Object.assign(this.toObject(), obj);
     const filtered = pick(target, 'name', 'code', 'price');
 
     return filtered;
@@ -35,16 +35,14 @@ module.exports = function (sequelize, DataTypes) {
   Coin.findByCoinCode = function (code, tOpts = {}) {
     return Coin.findOne(Object.assign({ where: { code } }, tOpts));
   };
-  Coin.upsert = function (values, tOpts = {}) {    // we can use upsert function instead of that
-    return Coin
-      .findOne(Object.assign({ where: { code: values.code } }, tOpts))
-      .then(function (coinObj) {
-        // update
-        if (coinObj)
-          return coinObj.update(values);
-        // insert
-        return Coin.create(values);
-      })
+  Coin.upsert = function (values, tOpts = {}) {
+    // we can use upsert function instead of that
+    return Coin.findOne(Object.assign({ where: { code: values.code } }, tOpts)).then(function (coinObj) {
+      // update
+      if (coinObj) return coinObj.update(values);
+      // insert
+      return Coin.create(values);
+    });
   };
   return Coin;
 };

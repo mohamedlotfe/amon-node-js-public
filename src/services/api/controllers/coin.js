@@ -7,7 +7,7 @@ const CoinController = {
     let coin = await Models.Coin.findByCoinCode(coinCode);
 
     errors.assertExposable(coin, 'unknown_coin_code');
-    const price = await coinGecko.fetchCoinPrice(coinCode)
+    const price = await coinGecko.fetchCoinPrice(coinCode);
 
     return coin.filterKeys({ price });
   },
@@ -17,8 +17,7 @@ const CoinController = {
     errors.assertExposable(coin, 'unknown_coin_code');
 
     return coin.filterKeys();
-  }
-
+  },
 };
 
 module.exports = CoinController;

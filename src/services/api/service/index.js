@@ -1,6 +1,5 @@
-
-const coinGecko = require("./coinGecko");
+const coinGecko = require('./coinGecko');
 
 module.exports = {
-    coinGecko
-}
+  coinGecko,
+};
